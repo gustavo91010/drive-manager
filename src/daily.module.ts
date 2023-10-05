@@ -3,6 +3,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { DailyEntities } from "./daily/daily-entities";
 import { DailySerice } from "./daily/daily-services";
 import { ConfigModule } from "@nestjs/config" // acesso as variaveis de ambiente
+import { DailyController } from "./daily/daily-controller/daily-controller";
 
 @Module({
     imports:[
@@ -11,7 +12,7 @@ import { ConfigModule } from "@nestjs/config" // acesso as variaveis de ambiente
         isGlobal: true
        }),
 ],
-    controllers:[],
+   controllers:[DailyController],
     providers:[DailySerice]
 })
 export class DailyModule{}

@@ -9,6 +9,7 @@ export class DailyEntities {
     @Column({ type: 'date' })
     date: Date;
 
+    
     @Column({ type: 'float' })
     km_walkend: number;
 

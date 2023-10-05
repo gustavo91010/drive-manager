@@ -4,7 +4,7 @@ export class DailyDto{
 
 
     @MinLength(4) // dia mes  com 2 digitos cada
-    @IsNotEmpty({ message: 'O campo date não pode ser vazio'})
+   // @IsNotEmpty({ message: 'O campo date não pode ser vazio'})
     date: Date;
 
     @IsNumber()

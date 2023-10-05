@@ -5,6 +5,7 @@ import { DailyModule } from './daily.module';
 import { ConfigModule } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostgresConfigService } from './config/postgres-config-service';
+import { DailyController } from './daily/daily-controller/daily-controller';
 
 @Module({
   imports: [
@@ -16,8 +17,8 @@ import { PostgresConfigService } from './config/postgres-config-service';
       useClass: PostgresConfigService,
       inject: [PostgresConfigService]
     })],
-  controllers: [AppController],
-  providers: [AppService],
+ // controllers: [AppController, DailyController],
+ // providers: [AppService],
 })
 export class AppModule { }
 
