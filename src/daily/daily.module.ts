@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { DailyEntities } from "./daily-entities";
+import { DailyEntity } from "./daily-entity";
 import { DailyController } from "./daily-controller/daily-controller";
 import { DailySerice } from "./daily-services";
 
 @Module({
-    imports: [TypeOrmModule.forFeature([DailyEntities])],
+    imports: [TypeOrmModule.forFeature([DailyEntity])],
     controllers: [DailyController],
     providers:[DailySerice]
 })

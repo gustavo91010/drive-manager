@@ -18,6 +18,9 @@ constructor(private configService: ConfigService){}
             password: this.configService.get<string>('DB_PASSWORD'),
             database: this.configService.get<string>('DB_NAME'),
             entities: [__dirname + '/../**/*.entity.{js,ts}'],
+       //   entities: [__dirname + '/../**/*.entity.ts'],
+      autoLoadEntities: true, // cara, tive que adicionar isso para me livar do erro de [Nest] 13230  - 05/10/2023 23:43:20   ERROR [ExceptionsHandler] No metadata for "DailyEntity" was found. 
+
             synchronize: true,
           };
     }

@@ -1,5 +1,5 @@
 import { Repository } from "typeorm";
-import { DailyEntities } from "./daily-entities";
+import { DailyEntity } from "./daily-entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DailyDto } from "./dto/dailyDto";
 import { Injectable, NotFoundException } from "@nestjs/common";
@@ -7,13 +7,14 @@ import { Injectable, NotFoundException } from "@nestjs/common";
 @Injectable()
 export class DailySerice {
 
+    
     constructor(
-        @InjectRepository(DailyEntities)
-        private readonly dailyRepository: Repository<DailyEntities>
+        @InjectRepository(DailyEntity)
+        private readonly dailyRepository: Repository<DailyEntity>
     ) { }
 
     async registerDaly(dailyDto: DailyDto) {
-        const newDaily = new DailyEntities();
+        const newDaily = new DailyEntity();
         if (!dailyDto.date) {
             dailyDto.date = new Date();
         }
@@ -35,7 +36,7 @@ console.log(newDaily)
 
     }
 
-    async allregister(): Promise<DailyEntities[]> { // pode vir um array ou null ou undefind
+    async allregister(): Promise<DailyEntity[]> { // pode vir um array ou null ou undefind
         try {
 
 
