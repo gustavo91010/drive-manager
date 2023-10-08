@@ -14,7 +14,7 @@ export class DailyEntity {
     km_walkend: number;
 
     @Column({ type: 'float' })
-    sepen_amount: number // valor gasto
+    sepen_amount: number // valor gasto, é spent tem que corrigir...
     @Column({ type: 'float' })
 
     gross_amount: number; // valor bruto

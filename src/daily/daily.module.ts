@@ -1,21 +1,31 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { DailyEntity } from "./daily-entity";
-import { DailyController } from "./daily-controller/daily-controller";
-import { DailySerice } from "./daily-services";
+import { DailyEntity } from "./entity/daily-entity";
+import { DailySerice } from "./service/daily-services";
+import { ConfigModule } from "@nestjs/config" // acesso as variaveis de ambiente
+import { DailyController } from "./controller/daily-controller";
+import { DailyRepository } from "./repository/daily-repository";
 
 @Module({
-    imports: [TypeOrmModule.forFeature([DailyEntity])],
-    controllers: [DailyController],
-    providers:[DailySerice]
+    imports:[
+        TypeOrmModule.forFeature([DailyEntity]),
+        ConfigModule.forRoot({
+        isGlobal: true
+       }),
+],
+   controllers:[DailyController],
+    providers:[DailySerice, DailyRepository]
 })
 export class DailyModule{}
 
 
+
 /**
- * @Module({
-    imports:[TypeOrmModule.forFeature([UsuarioEntity])],
-    controllers: [UsuarioController],
-    providers: [UsuarioService,UsuaioRepository, EmailEhUnicoValidador] // a classe que sera ijetatada como providers precisa esta com a anotação / decoration providers
+ * 
+@Module({
+    imports: [TypeOrmModule.forFeature([ProdutoEntity])],
+    controllers: [ProdutoController],
+    providers: [ProdutoService],
 })
- */
+export class ProdutoModule {}
+*/

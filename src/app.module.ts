@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DailyModule } from './daily.module';
+import { DailyModule } from './daily/daily.module';
 import { ConfigModule } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostgresConfigService } from './config/postgres-config-service';
